@@ -1,0 +1,441 @@
+[
+  {
+    "id": "faq-01",
+    "category": "order_tracking",
+    "question": "Where is my order?",
+    "alternative_questions": [
+      "Track my package",
+      "How do I track my order?",
+      "What is the status of my shipment?",
+      "Can you find my order?"
+    ],
+    "keywords": ["track", "where", "order", "status", "shipment", "package", "tracking", "locate"],
+    "answer": "To track your order, please provide your Order ID (for example, ORD-1001). You can also view live tracking anytime by navigating to 'My Orders' in your SmartShop account and clicking 'Track Package'. You'll see real-time courier updates and estimated delivery dates.",
+    "requires_order_id": true,
+    "action_hint": "Please provide your Order ID (e.g., ORD-1001) to check its live status."
+  },
+  {
+    "id": "faq-02",
+    "category": "order_tracking",
+    "question": "How do I find my tracking number?",
+    "alternative_questions": [
+      "What is my tracking number?",
+      "Where can I see the courier tracking code?",
+      "I didn't get a tracking link"
+    ],
+    "keywords": ["tracking", "number", "code", "courier", "find", "link", "consignment"],
+    "answer": "Your tracking number (AWB) is sent via email and SMS as soon as your parcel is dispatched. You can also find it under 'My Orders' -> 'Order Details' -> 'Shipping Information'.",
+    "requires_order_id": false,
+    "action_hint": "Check your confirmation email or provide your Order ID."
+  },
+  {
+    "id": "faq-03",
+    "category": "order_tracking",
+    "question": "Why is my tracking link not updating?",
+    "alternative_questions": [
+      "Tracking status is stuck",
+      "No movement on tracking",
+      "Tracking has not updated for 2 days"
+    ],
+    "keywords": ["tracking", "stuck", "updating", "not moving", "courier delay", "frozen"],
+    "answer": "Courier tracking statuses typically update every 12 to 24 hours as parcels reach regional distribution hubs. If your status has remained unchanged for more than 48 hours beyond the expected timeline, please share your Order ID so our support team can verify with the delivery partner.",
+    "requires_order_id": true,
+    "action_hint": "Provide your Order ID to check courier updates."
+  },
+  {
+    "id": "faq-04",
+    "category": "order_cancellation",
+    "question": "How can I cancel my order?",
+    "alternative_questions": [
+      "Can I cancel my purchase?",
+      "I want to cancel an order",
+      "Cancel order steps",
+      "How do I stop my order?"
+    ],
+    "keywords": ["cancel", "cancellation", "stop order", "revoke", "dont want", "annul"],
+    "answer": "You can cancel your order directly from 'My Orders' as long as the status is 'Processing' or 'Order Placed'. Once an order is marked as 'Shipped' or 'Out for Delivery', it cannot be cancelled online, but you can simply refuse delivery at your doorstep for a full refund.",
+    "requires_order_id": true,
+    "action_hint": "Provide your Order ID to check if it's eligible for instant cancellation."
+  },
+  {
+    "id": "faq-05",
+    "category": "order_cancellation",
+    "question": "Can I cancel my order after it has shipped?",
+    "alternative_questions": [
+      "Already shipped cancel",
+      "Item in transit can I cancel?",
+      "Cancel dispatched order"
+    ],
+    "keywords": ["cancel", "shipped", "dispatched", "in transit", "refuse"],
+    "answer": "Once an order has already been handed over to the courier and shipped, it cannot be cancelled through the app. However, you can decline the delivery when the courier arrives. As soon as the parcel returns to our warehouse, your refund will be triggered automatically.",
+    "requires_order_id": false,
+    "action_hint": "You can refuse delivery at the doorstep."
+  },
+  {
+    "id": "faq-06",
+    "category": "order_cancellation",
+    "question": "Will I be charged a fee for cancelling my order?",
+    "alternative_questions": [
+      "Is cancellation free?",
+      "Are there cancellation charges?",
+      "Penalty for cancellation"
+    ],
+    "keywords": ["cancellation fee", "charge", "penalty", "cost to cancel", "free cancellation"],
+    "answer": "No, SmartShop does not charge any cancellation fees. You will receive a 100% full refund to your original payment method for all eligible cancelled orders.",
+    "requires_order_id": false,
+    "action_hint": "All cancellations prior to delivery are 100% free."
+  },
+  {
+    "id": "faq-07",
+    "category": "returns_refunds",
+    "question": "How long does a refund take?",
+    "alternative_questions": [
+      "When will I get my refund?",
+      "Refund processing time",
+      "How many days for refund to reflect?",
+      "Where is my money after return?"
+    ],
+    "keywords": ["refund", "how long", "time", "days", "when", "money back", "reimbursement", "credit"],
+    "answer": "Once initiated, refunds are processed within 24 hours. The time to reflect in your account depends on your payment method: UPI / Wallets: 24-48 hours; Credit / Debit Cards: 3-5 business days; Net Banking: 5-7 business days. If you haven't received it after 7 business days, please share your transaction reference or Order ID.",
+    "requires_order_id": false,
+    "action_hint": "Check the payment method used for accurate timeframes."
+  },
+  {
+    "id": "faq-08",
+    "category": "returns_refunds",
+    "question": "What is the return policy?",
+    "alternative_questions": [
+      "How do returns work?",
+      "Can I return an item?",
+      "Return window duration",
+      "How many days to return?"
+    ],
+    "keywords": ["return policy", "return window", "eligible for return", "days return", "policy"],
+    "answer": "SmartShop offers a hassle-free 15-day return policy for most items starting from the delivery date. Items must be in their original unused condition, with price tags intact and original packaging included. Electronics, fashion, and home goods are fully returnable, while perishable goods and personal hygiene items are non-returnable.",
+    "requires_order_id": false,
+    "action_hint": "Items are eligible within 15 days of delivery."
+  },
+  {
+    "id": "faq-09",
+    "category": "returns_refunds",
+    "question": "How do I initiate a return or refund?",
+    "alternative_questions": [
+      "I want to return an item",
+      "I want a refund for my purchase",
+      "I want a refund",
+      "Start return process",
+      "Refund request",
+      "Schedule return pickup"
+    ],
+    "keywords": ["initiate return", "request refund", "start return", "send back", "return item", "refund for my purchase", "want refund"],
+    "answer": "SmartShop offers a 15-day return and refund policy. To initiate a return: 1. Go to 'My Orders'. 2. Select the order and click 'Return Item'. 3. Choose the reason for return and preferred pickup slot. 4. Our courier will pick up the package within 2-3 business days. Once verified, your refund is credited automatically.",
+    "requires_order_id": true,
+    "action_hint": "Please provide your Order ID (e.g., ORD-1003) to verify return and refund eligibility."
+  },
+  {
+    "id": "faq-10",
+    "category": "payment_failures",
+    "question": "My payment failed, but money was deducted from my account.",
+    "alternative_questions": [
+      "Money debited but order not placed",
+      "Payment deducted transaction failed",
+      "Bank debited order unsuccessful",
+      "Money cut from bank account"
+    ],
+    "keywords": ["payment failed", "money deducted", "debited", "charged", "bank deducted", "transaction failed", "deducted"],
+    "answer": "Do not worry! If an amount was debited for an unsuccessful transaction, the funds are safely held in the banking intermediary settlement. Your bank will automatically reconcile and reverse the amount back to your source account within 3 to 5 business days. If you still don't see the credit after 5 business days, please provide your payment reference number or escalate to our human agent for manual bank reconciliation.",
+    "requires_order_id": false,
+    "action_hint": "Banks auto-reverse failed charges in 3-5 business days."
+  },
+  {
+    "id": "faq-11",
+    "category": "payment_failures",
+    "question": "What payment methods do you accept?",
+    "alternative_questions": [
+      "Can I pay with credit card?",
+      "Payment options available",
+      "Do you accept UPI or Cash on Delivery?",
+      "How can I pay?"
+    ],
+    "keywords": ["payment methods", "credit card", "debit card", "upi", "cod", "cash on delivery", "net banking", "wallet"],
+    "answer": "We accept: 1. Credit & Debit cards (Visa, MasterCard, RuPay, Amex). 2. UPI (Google Pay, PhonePe, Paytm, BHIM). 3. Net Banking across 50+ major banks. 4. SmartShop Wallet & EMI. 5. Cash on Delivery (COD) for orders up to $200 in eligible zip codes.",
+    "requires_order_id": false,
+    "action_hint": "We support cards, UPI, net banking, and Cash on Delivery."
+  },
+  {
+    "id": "faq-12",
+    "category": "payment_failures",
+    "question": "Why was my credit card or payment declined?",
+    "alternative_questions": [
+      "Card declined",
+      "Why is my payment not going through?",
+      "Payment error at checkout"
+    ],
+    "keywords": ["declined", "payment rejected", "card error", "checkout failed", "otp issue"],
+    "answer": "Common causes for declined payments include: incorrect CVV or expiry date, bank OTP timeout, daily card limit exceeded, or international transactions disabled on your card. We recommend trying an alternative payment method such as UPI or contacting your card issuer.",
+    "requires_order_id": false,
+    "action_hint": "Try using UPI or checking international/online limits on your card."
+  },
+  {
+    "id": "faq-13",
+    "category": "product_availability",
+    "question": "When will an out-of-stock item be available again?",
+    "alternative_questions": [
+      "Is product available?",
+      "When will item restock?",
+      "Item out of stock restock date",
+      "Can you notify me when available?"
+    ],
+    "keywords": ["out of stock", "availability", "restock", "inventory", "available again", "notify me"],
+    "answer": "Items marked 'Out of Stock' are generally replenished within 7 to 14 days depending on supplier inventory. You can click the 'Notify Me' bell icon on the product page to receive an instant email and SMS alert as soon as new stock arrives.",
+    "requires_order_id": false,
+    "action_hint": "Click 'Notify Me' on the product page for instant stock alerts."
+  },
+  {
+    "id": "faq-14",
+    "category": "product_availability",
+    "question": "Can I reserve or pre-order an out-of-stock item?",
+    "alternative_questions": [
+      "Pre order item",
+      "Hold out of stock item",
+      "Can I book an item before stock arrives?"
+    ],
+    "keywords": ["pre-order", "reserve", "hold item", "book item", "backorder"],
+    "answer": "Pre-orders are only available for select upcoming product launches labeled 'Pre-Order Now'. Standard out-of-stock items cannot be reserved in advance, but adding them to your Wishlist guarantees you get first-priority restock notifications.",
+    "requires_order_id": false,
+    "action_hint": "Add the item to your Wishlist to get immediate restock notifications."
+  },
+  {
+    "id": "faq-15",
+    "category": "product_availability",
+    "question": "Are products sold on SmartShop authentic and brand new?",
+    "alternative_questions": [
+      "Are products genuine?",
+      "Is this authentic?",
+      "Are items refurbished or new?"
+    ],
+    "keywords": ["authentic", "genuine", "original", "warranty", "brand new", "counterfeit"],
+    "answer": "Yes, 100%! All products sold on SmartShop are 100% brand new, authentic, and sourced directly from certified brand distributors. Every electronic item includes the manufacturer's official warranty.",
+    "requires_order_id": false,
+    "action_hint": "All products come with genuine brand warranties."
+  },
+  {
+    "id": "faq-16",
+    "category": "delivery_delays",
+    "question": "Why is my delivery delayed?",
+    "alternative_questions": [
+      "Late delivery",
+      "Package is delayed",
+      "Order has not arrived on time",
+      "Why has my delivery date passed?"
+    ],
+    "keywords": ["delayed", "delay", "late", "not delivered", "overdue", "past expected date", "stuck"],
+    "answer": "We sincerely apologize for any delay! Delivery delays can occasionally happen due to severe weather, logistics traffic, regional holidays, or incomplete address details. If your expected delivery date has passed, please provide your Order ID so we can expedite your shipment with our courier partner.",
+    "requires_order_id": true,
+    "action_hint": "Share your Order ID so we can expedite courier delivery."
+  },
+  {
+    "id": "faq-17",
+    "category": "delivery_delays",
+    "question": "How long does standard delivery take?",
+    "alternative_questions": [
+      "What is normal delivery time?",
+      "Delivery duration",
+      "Estimated transit time"
+    ],
+    "keywords": ["standard delivery", "delivery time", "shipping time", "how fast", "transit days"],
+    "answer": "Standard delivery takes 3 to 5 business days for major metropolitan areas and 5 to 7 business days for regional and rural locations. SmartShop Express members enjoy guaranteed next-day or 2-day delivery on eligible items.",
+    "requires_order_id": false,
+    "action_hint": "Metro delivery takes 3-5 business days; Express takes 1-2 days."
+  },
+  {
+    "id": "faq-18",
+    "category": "delivery_delays",
+    "question": "Can I change my delivery address after placing an order?",
+    "alternative_questions": [
+      "Update shipping address",
+      "Wrong address entered",
+      "Change delivery location"
+    ],
+    "keywords": ["change address", "update address", "wrong address", "modify shipping location"],
+    "answer": "You can change your delivery address if your order is still in 'Processing' status by opening 'My Orders' -> 'Edit Address'. If the order has already shipped, the destination address cannot be changed in-flight; you may contact the courier via your tracking link to request a local pickup holding.",
+    "requires_order_id": true,
+    "action_hint": "Provide your Order ID to check if address edit is still open."
+  },
+  {
+    "id": "faq-19",
+    "category": "account_login",
+    "question": "How do I reset my password?",
+    "alternative_questions": [
+      "Forgot password",
+      "Can't log in",
+      "Reset account password",
+      "Change my password"
+    ],
+    "keywords": ["reset password", "forgot password", "login issue", "password recovery", "cant login"],
+    "answer": "To reset your password: 1. Click 'Sign In' at the top right of SmartShop. 2. Click 'Forgot Password?'. 3. Enter your registered email address or mobile phone number. 4. Enter the 6-digit verification code sent to you and choose a new secure password.",
+    "requires_order_id": false,
+    "action_hint": "Use 'Forgot Password' on the login page for an instant OTP reset."
+  },
+  {
+    "id": "faq-20",
+    "category": "account_login",
+    "question": "I suspect my account has been hacked or compromised.",
+    "alternative_questions": [
+      "Account hacked",
+      "Unauthorized login",
+      "Security breach in my profile",
+      "Suspicious activity on my account"
+    ],
+    "keywords": ["hacked", "compromised", "fraud", "unauthorized", "suspicious", "stolen account", "breach"],
+    "answer": "Security Alert: If you suspect unauthorized access, please immediately change your password and log out of all active sessions under 'Settings' -> 'Security'. We will instantly escalate your issue to our Security and Fraud Prevention team to temporarily freeze any unauthorized orders.",
+    "requires_order_id": false,
+    "action_hint": "Immediate escalation to our Fraud Protection department."
+  },
+  {
+    "id": "faq-21",
+    "category": "account_login",
+    "question": "How do I update my registered mobile number or email?",
+    "alternative_questions": [
+      "Change email address",
+      "Update phone number",
+      "Edit profile contact details"
+    ],
+    "keywords": ["update email", "change phone", "edit contact", "profile update", "new phone number"],
+    "answer": "Go to 'My Profile' -> 'Personal Information' -> 'Edit'. You will need to verify the change via an OTP sent to your current registered number or email for your protection.",
+    "requires_order_id": false,
+    "action_hint": "Update contact details under My Profile -> Personal Information."
+  },
+  {
+    "id": "faq-22",
+    "category": "damaged_incorrect",
+    "question": "I received a damaged product. What should I do?",
+    "alternative_questions": [
+      "Broken item received",
+      "Product arrived damaged",
+      "Package was crushed or opened",
+      "Damaged in transit"
+    ],
+    "keywords": ["damaged", "broken", "crushed", "defective", "faulty", "smashed", "physical damage"],
+    "answer": "We are very sorry for this experience! If your item arrived damaged: 1. Take clear photos of the damaged item and outer packaging box. 2. Go to 'My Orders' -> 'Report Issue' -> 'Damaged Product' within 48 hours of delivery. 3. Upload the photos. We will arrange a free immediate replacement or full refund.",
+    "requires_order_id": true,
+    "action_hint": "Please share your Order ID and photo details to initiate a replacement."
+  },
+  {
+    "id": "faq-23",
+    "category": "damaged_incorrect",
+    "question": "I received the wrong item in my package.",
+    "alternative_questions": [
+      "Incorrect product delivered",
+      "Different item received",
+      "Wrong color or size sent",
+      "Got someone else's order"
+    ],
+    "keywords": ["wrong item", "incorrect item", "different product", "wrong size", "wrong color", "mistake"],
+    "answer": "We sincerely apologize for the mix-up! Please report the incorrect product within 48 hours under 'My Orders' -> 'Return or Replace' -> 'Incorrect Item Received'. We will schedule a priority doorstep exchange where our courier delivers the correct item and picks up the wrong one simultaneously.",
+    "requires_order_id": true,
+    "action_hint": "Provide your Order ID to initiate a priority doorstep exchange."
+  },
+  {
+    "id": "faq-24",
+    "category": "damaged_incorrect",
+    "question": "Items are missing from my package.",
+    "alternative_questions": [
+      "Part of order missing",
+      "Only received 1 out of 2 items",
+      "Incomplete delivery",
+      "Missing product in box"
+    ],
+    "keywords": ["missing item", "incomplete package", "item omitted", "box was empty", "missing"],
+    "answer": "Sometimes multi-item orders are shipped in separate parcels from different regional warehouses. Check your tracking link to see if there are multiple package shipments. If all shipments are marked delivered and an item is still missing, please provide your Order ID so we can investigate with warehouse surveillance.",
+    "requires_order_id": true,
+    "action_hint": "Check if your order had split shipments or provide your Order ID."
+  },
+  {
+    "id": "faq-25",
+    "category": "exchange_requests",
+    "question": "How do I request an exchange for size or color?",
+    "alternative_questions": [
+      "Can I exchange for a different size?",
+      "Exchange product",
+      "Swap item for another color",
+      "Size replacement"
+    ],
+    "keywords": ["exchange", "swap", "size change", "color change", "replace size", "replacement"],
+    "answer": "SmartShop offers free size and color exchanges within 15 days of delivery. Go to 'My Orders' -> 'Exchange' -> select your desired replacement size or color -> pick a convenient pickup time. The new item is dispatched right after pickup verification.",
+    "requires_order_id": true,
+    "action_hint": "Provide your Order ID to see available exchange sizes."
+  },
+  {
+    "id": "faq-26",
+    "category": "exchange_requests",
+    "question": "Is there any charge for product exchanges?",
+    "alternative_questions": [
+      "Do I pay for exchange shipping?",
+      "Are exchanges free?",
+      "Cost of exchange"
+    ],
+    "keywords": ["exchange fee", "free exchange", "courier fee exchange", "swap cost"],
+    "answer": "No! Exchanges for size, color, or defective items are 100% free of charge. SmartShop covers all return and re-shipping courier costs.",
+    "requires_order_id": false,
+    "action_hint": "All product exchanges are completely free."
+  },
+  {
+    "id": "faq-27",
+    "category": "customer_support",
+    "question": "How do I contact customer support or talk to a human?",
+    "alternative_questions": [
+      "Speak to a representative",
+      "Talk to a human agent",
+      "Customer care number",
+      "Connect me to an agent",
+      "Human help"
+    ],
+    "keywords": ["human", "agent", "representative", "call", "phone", "contact support", "talk to person", "real person", "escalate"],
+    "answer": "You can connect with our live human support team 24/7! I can escalate this conversation right now and generate a simulated support ticket for you, or you can call our toll-free helpline at 1-800-SMART-SHOP (1-800-762-7874) or email support@smartshop.example.com.",
+    "requires_order_id": false,
+    "action_hint": "Click 'Connect to Human Agent' or request escalation anytime."
+  },
+  {
+    "id": "faq-28",
+    "category": "customer_support",
+    "question": "What are your customer support operating hours?",
+    "alternative_questions": [
+      "Are you open on weekends?",
+      "Support timing",
+      "When can I call support?"
+    ],
+    "keywords": ["hours", "timings", "working hours", "operating hours", "open time", "weekend support"],
+    "answer": "Our AI Chatbot is available 24 hours a day, 7 days a week, 365 days a year. Our human support agents are available via live chat and phone from 8:00 AM to 10:00 PM EST every day, including weekends and public holidays.",
+    "requires_order_id": false,
+    "action_hint": "AI chatbot is 24/7; human phone agents are available 8 AM - 10 PM EST."
+  },
+  {
+    "id": "faq-29",
+    "category": "order_tracking",
+    "question": "Can I track my order without logging in?",
+    "alternative_questions": [
+      "Guest order tracking",
+      "Track order as guest",
+      "Track with email only"
+    ],
+    "keywords": ["guest tracking", "track without login", "anonymous tracking", "order tracking guest"],
+    "answer": "Yes! You can use our 'Quick Track' tool on the homepage footer by entering your Order ID and the phone number or email address provided during checkout.",
+    "requires_order_id": true,
+    "action_hint": "Enter your Order ID and checkout phone number on the Quick Track page."
+  },
+  {
+    "id": "faq-30",
+    "category": "returns_refunds",
+    "question": "Can I get a refund directly to my bank account for Cash on Delivery (COD)?",
+    "alternative_questions": [
+      "COD refund process",
+      "Cash on delivery refund to bank",
+      "How to get money back for COD?"
+    ],
+    "keywords": ["cod refund", "cash on delivery refund", "bank account cod", "cash return"],
+    "answer": "Yes. When you initiate a return for a Cash on Delivery order, you will be prompted to provide your Bank Account Number & IFSC/Routing code or UPI ID. The refund will be credited directly to your bank account within 2-3 business days after pickup.",
+    "requires_order_id": false,
+    "action_hint": "Add your UPI ID or Bank account details when submitting a COD return."
+  }
+]
