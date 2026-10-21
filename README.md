@@ -124,6 +124,20 @@ Open your browser and navigate to:
 http://127.0.0.1:5000
 ```
 
+### Deploy on Render
+The repository includes a Render Blueprint configuration (`render.yaml`) for deploying
+the Flask app as a public web service:
+1. Sign in to [Render](https://render.com/) and connect your GitHub account.
+2. Select **New** -> **Blueprint**, then choose the `Nagashree-22/smartshop-ai-support`
+   repository and the branch containing `render.yaml`.
+3. Review and create the `smartshop-ai-support` web service. The free instance uses the
+   rule-based fallback engine by default; add `GROQ_API_KEY` in the service's environment
+   settings if you want Groq responses.
+4. Once deployment finishes, open the `onrender.com` URL shown on the service dashboard.
+
+The free Render instance may spin down when idle and take a short time to wake up on its
+next request.
+
 ---
 
 ## 4. Faculty Demonstration Guide
