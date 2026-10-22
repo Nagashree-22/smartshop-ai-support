@@ -130,14 +130,16 @@ class SmartShopChatbot:
         if any(fk in msg for fk in frustration_keywords):
             return "frustration"
 
-        # Check for direct order ID provided in response to pending order action
-        extracted_id = self.extract_order_id(msg)
-        if extracted_id and (len(msg.split()) <= 4 or session.get("pending_order_action")):
-            return "order_id_lookup"
-
         # Check for cancellation intent
         if any(w in msg for w in ["cancel", "cancellation", "stop my order", "annul order", "dont want order"]):
             return "order_cancellation"
+
+        # Tracking instructions and stale-link questions are FAQs, not live lookups.
+        if any(w in msg for w in [
+            "tracking number", "tracking code", "tracking link", "awb",
+            "tracking status is stuck", "tracking has not updated", "tracking not updated"
+        ]):
+            return "general_faq"
 
         # Check for order tracking
         if any(w in msg for w in ["where is my order", "track", "tracking", "status of order", "locate package", "shipment status"]):
@@ -170,6 +172,11 @@ class SmartShopChatbot:
         # Check for product availability
         if any(w in msg for w in ["out of stock", "restock", "available again", "inventory", "when in stock", "pre-order"]):
             return "product_availability"
+
+        # Treat a bare order ID as a follow-up, after checking for specific order actions.
+        extracted_id = self.extract_order_id(msg)
+        if extracted_id and (len(msg.split()) <= 4 or session.get("pending_order_action")):
+            return "order_id_lookup"
 
         # Check for resolution feedback
         if msg in ["yes", "yes, resolved", "resolved", "yes thank you", "solved", "it helped"]:

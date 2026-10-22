@@ -169,11 +169,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function handleCategoryClick(catId, catLabel) {
+    async function handleCategoryClick(catId, catLabel) {
         if (window.innerWidth <= 860) {
             sidebar.classList.remove('open');
         }
-        sendMessage(`What are common questions for ${catLabel}?`);
+
+        setLoadingState(true);
+        try {
+            const response = await fetch(`/api/faq?category=${encodeURIComponent(catId)}`);
+            if (!response.ok) {
+                throw new Error(`FAQ request failed with status ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (!data.success || !Array.isArray(data.faqs)) {
+                throw new Error('FAQ response was invalid');
+            }
+
+            appendMessage('bot', `Here are common questions for **${catLabel}**. Select one to ask:`);
+            renderFloatingQuickReplies(data.faqs.map(faq => faq.question));
+        } catch (err) {
+            console.error('Failed to load category FAQs:', err);
+            appendMessage('bot', `Unable to load ${catLabel} questions right now. Please try again.`);
+        } finally {
+            setLoadingState(false);
+        }
     }
 
     /**

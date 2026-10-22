@@ -76,6 +76,18 @@ All prototype tests use clearly labeled mock data:
 - `ORD-1004`: **Cancelled & Refunded** (Thermal Water Bottle, $45.00). Shows completed refund reference `REF-7729104`.
 - `ORD-1005`: **Delayed in Transit** (Smart Fitness Watch, Midwest Weather Hold). Shows delay diagnosis and revised delivery date.
 
+### C. Case Study 2 Requirements and Coverage
+
+| Case study requirement | How the prototype addresses it |
+|---|---|
+| Collect and categorize common customer queries | `faq.json` contains 30+ FAQs with question variants, keywords, categories, answers, and order-ID requirements. The UI exposes all detected categories and lets customers browse each category's questions. |
+| Identify recurring customer problems | The FAQ categories cover tracking, cancellation, refunds, payment failures, availability, delivery delays, login/security, damaged or incorrect items, exchanges, and human support. |
+| Define chatbot requirements and information to provide | The chatbot classifies each query, answers from approved FAQ content, verifies order-specific data against the sample-order dataset, requests missing order IDs, protects other customers' data, and falls back safely when Groq is unavailable. |
+| Prepare conversation flow and escalation conditions | The flow is: classify the query → answer a FAQ or request missing details → verify an order/action when an ID is supplied → ask whether the answer resolved the issue → offer escalation. Explicit agent requests escalate immediately; frustration triggers a high-priority ticket; repeated unresolved feedback escalates. |
+| Build a basic interface/prototype | The Flask app provides a responsive chat page, suggested questions, category buttons, sample-order chips, status indicators, session reset, and a human-agent escalation modal. |
+| Test sample conversations and improve incomplete behavior | The tests cover representative customer scenarios, API endpoints, order-ID follow-ups, and direct cancellation. A regression test ensures that `Cancel order ORD-1002` performs cancellation instead of being misclassified as a tracking lookup. |
+| Demonstrate a working prototype | Follow the [Faculty Demonstration Guide](#4-faculty-demonstration-guide) to run tracking, cancellation, payment, privacy, FAQ, and escalation examples locally. |
+
 ---
 
 ## 3. Quick Start & Setup in Visual Studio Code
@@ -198,6 +210,15 @@ The project includes an automated test runner that verifies all 15 scenarios req
 ```powershell
 python tests/run_tests.py
 ```
+
+Run the extended API and conversation-flow checks as well:
+```powershell
+python tests/test_scenarios.py
+```
+
+The first command evaluates the 15 demonstration scenarios; the second also checks
+the page and data endpoints, session follow-up/reset, escalation API, and the
+order-ID cancellation regression.
 
 ### Test Execution Output:
 ```

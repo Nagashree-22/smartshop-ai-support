@@ -47,6 +47,87 @@ class TestSmartShopScenarios(unittest.TestCase):
         self.assertTrue("cancel" in data["response"].lower())
         self.assertTrue(data.get("needs_order_id") or "order id" in data["response"].lower())
 
+    def test_cancel_order_with_id(self):
+        """A cancellation request with an order ID must not be treated as tracking."""
+        with patch.dict(
+            self.chatbot.sample_orders["ORD-1002"],
+            {"status": "Processing", "can_cancel": True}
+        ):
+            res = self.client.post("/api/chat", json={"message": "Cancel order ORD-1002"})
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertTrue(data["success"])
+        self.assertEqual(data["intent"], "order_cancellation")
+        self.assertIn("successfully cancelled", data["response"].lower())
+        self.assertIn("Refund Amount", data["response"])
+
+    def test_public_pages_and_information_endpoints(self):
+        """The interface, health, FAQ, category, and sample-order endpoints are available."""
+        page = self.client.get("/")
+        self.assertEqual(page.status_code, 200)
+        self.assertIn(b"ShopMate", page.data)
+
+        status = self.client.get("/api/status")
+        self.assertEqual(status.status_code, 200)
+        self.assertEqual(status.get_json()["status"], "online")
+
+        faqs = self.client.get("/api/faq").get_json()
+        self.assertTrue(faqs["success"])
+        self.assertGreaterEqual(faqs["total"], 30)
+        filtered = self.client.get("/api/faq?category=order_tracking").get_json()
+        self.assertTrue(all(faq["category"] == "order_tracking" for faq in filtered["faqs"]))
+
+        categories = self.client.get("/api/faq/categories").get_json()
+        self.assertTrue(categories["success"])
+        self.assertGreaterEqual(len(categories["categories"]), 10)
+
+        orders = self.client.get("/api/orders").get_json()
+        self.assertTrue(orders["success"])
+        self.assertEqual(len(orders["orders"]), 5)
+        self.assertIn("ORD-1001", orders["orders"])
+
+    def test_order_followup_and_session_reset(self):
+        """The Order ID follow-up preserves context, and reset returns a new session."""
+        first = self.client.post("/api/chat", json={"message": "Where is my order?"}).get_json()
+        self.assertTrue(first["needs_order_id"])
+
+        tracked = self.client.post(
+            "/api/chat",
+            json={"message": "ORD-1001", "session_id": first["session_id"]}
+        ).get_json()
+        self.assertEqual(tracked["intent"], "order_tracking")
+        self.assertIn("BLU-99218230", tracked["response"])
+
+        reset = self.client.post(
+            "/api/session/clear", json={"session_id": first["session_id"]}
+        ).get_json()
+        self.assertTrue(reset["success"])
+        self.assertNotEqual(reset["session_id"], first["session_id"])
+
+    def test_tracking_number_question_uses_faq(self):
+        """A tracking-number instruction question should not request a live order lookup."""
+        res = self.client.post(
+            "/api/chat", json={"message": "How do I find my tracking number?"}
+        )
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["intent"], "order_tracking")
+        self.assertFalse(data.get("needs_order_id", False))
+        self.assertIn("sent via email and SMS", data["response"])
+
+    def test_direct_escalation_endpoint(self):
+        """The direct human-agent escalation endpoint returns a demonstration ticket."""
+        res = self.client.post(
+            "/api/escalate",
+            json={"reason": "Test escalation", "summary": "Test case"}
+        )
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertTrue(data["success"])
+        self.assertTrue(data["is_escalation"])
+        self.assertTrue(data["ticket"]["ticket_id"].startswith("TKT-2026-"))
+        self.assertIn("DEMONSTRATION ONLY", data["response"])
+
     def test_scenario_03_refund_time(self):
         """Scenario 3: Customer asks, 'How long does a refund take?'"""
         res = self.client.post("/api/chat", json={"message": "How long does a refund take?"})
